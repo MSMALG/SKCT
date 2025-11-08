@@ -1,0 +1,171 @@
+[gd_scene load_steps=18 format=4 uid="uid://cp4lpt33r2f3v"]
+
+[ext_resource type="Texture2D" uid="uid://cccpaxbkp4alg" path="res://art/artItch/TileSet-36x36.png" id="1_6ykjv"]
+[ext_resource type="Script" uid="uid://dieq3ethd1gdr" path="res://scripts/lobby_level.gd" id="1_41nbf"]
+[ext_resource type="Texture2D" uid="uid://v3pcfk2711vi" path="res://art/artItch/Background.png" id="1_nmmna"]
+[ext_resource type="Texture2D" uid="uid://cb4atfsucehw2" path="res://art/artItch/Bushes-16x16.png" id="2_nmmna"]
+[ext_resource type="Texture2D" uid="uid://u5hakprsmwht" path="res://art/artItch/House1.png" id="3_sjn3d"]
+[ext_resource type="Texture2D" uid="uid://cevq6ubfpgahn" path="res://art/artItch/Tree1.png" id="4_41nbf"]
+[ext_resource type="PackedScene" uid="uid://girqdxmh2yjb" path="res://scenes/player.tscn" id="6_sjn3d"]
+[ext_resource type="PackedScene" uid="uid://xd8bx2j2rjmh" path="res://scenes/scene_transition_anim.tscn" id="8_q0i2j"]
+[ext_resource type="Script" uid="uid://wrc8qkrl6ep5" path="res://scripts/high_score.gd" id="9_6m2vk"]
+[ext_resource type="Script" uid="uid://x1oom8axtp4t" path="res://scripts/prev_rd_score.gd" id="10_nyq1u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q0i2j"]
+texture = ExtResource("1_6ykjv")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+6:3/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6m2vk"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_q0i2j")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyq1u"]
+texture = ExtResource("2_nmmna")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+2:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_etn34"]
+sources/0 = SubResource("TileSetAtlasSource_nyq1u")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt0qo"]
+texture = ExtResource("2_nmmna")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+2:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0ndw4"]
+sources/0 = SubResource("TileSetAtlasSource_kt0qo")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41nbf"]
+size = Vector2(194, 35)
+
+[node name="LobbyLevel" type="Node2D"]
+script = ExtResource("1_41nbf")
+
+[node name="Spritebg" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Spritebg"]
+position = Vector2(523.99994, 73)
+scale = Vector2(3.9789474, 3.22)
+texture = ExtResource("1_nmmna")
+
+[node name="Ground" type="Node2D" parent="Spritebg"]
+
+[node name="Ground" type="TileMapLayer" parent="Spritebg/Ground"]
+position = Vector2(-15, 0)
+tile_map_data = PackedByteArray("AAD//wAAAQABAAEAAAAAAAAAAQACAAEAAAABAAAAAQADAAEAAAACAAAAAQADAAEAAAADAAAAAQADAAEAAAAFAAAAAQADAAEAAAAEAAAAAQADAAEAAAD//wEAAQABAAIAAAAAAAEAAQACAAIAAAABAAEAAQACAAIAAAACAAEAAQACAAIAAAADAAEAAQACAAIAAAAEAAEAAQADAAIAAAAFAAEAAQADAAIAAAD//wIAAQABAAIAAAAAAAIAAQACAAIAAAABAAIAAQACAAIAAAACAAIAAQACAAIAAAADAAIAAQADAAIAAAAEAAIAAQADAAIAAAAFAAIAAQADAAIAAAAAAP//AQAFAAEAAAABAP//AQAFAAEAAAABAP7/AQAFAAEAAAAGAAAAAQADAAEAAAAHAAAAAQADAAEAAAAIAAAAAQADAAEAAAAJAAAAAQAEAAEAAAAIAAEAAQADAAIAAAAHAAEAAQADAAIAAAAGAAEAAQADAAIAAAAJAAEAAQAEAAQAAAAJAAQAAQAEAAQAAAAJAAIAAQAEAAQAAAAJAAMAAQAEAAIAAAAHAAIAAQACAAIAAAAGAAIAAQACAAIAAAAGAAQAAQACAAIAAAAIAAQAAQACAAIAAAAGAAMAAQADAAIAAAAHAAMAAQADAAIAAAAIAAMAAQADAAIAAAAIAAIAAQADAAIAAAAHAAQAAQADAAIAAAAGAP//AQAFAAEAAAAGAP7/AQAGAAEAAAA=")
+tile_set = SubResource("TileSet_6m2vk")
+
+[node name="Bushes" type="TileMapLayer" parent="Spritebg/Ground"]
+tile_map_data = PackedByteArray("AAAIAPz/AAACAAQAAAAJAPz/AAADAAQAAAAGAPv/AAACAAQAAAAHAPv/AAADAAQAAAAFAPv/AAACAAQAAAAFAPz/AAACAAUAAAAFAP3/AAACAAUAAAAFAP7/AAACAAUAAAAFAP//AAACAAUAAAAGAP//AAACAAUAAAAHAP//AAACAAUAAAAIAP//AAACAAUAAAAIAP7/AAACAAUAAAAIAP3/AAACAAUAAAAHAP3/AAACAAUAAAAHAPz/AAACAAUAAAAGAPz/AAACAAUAAAAGAP3/AAACAAUAAAAGAP7/AAACAAUAAAAHAP7/AAACAAUAAAAJAP3/AAADAAUAAAAJAP7/AAADAAUAAAAJAP//AAADAAUAAAA=")
+tile_set = SubResource("TileSet_etn34")
+
+[node name="greenBushes" type="TileMapLayer" parent="Spritebg/Ground"]
+tile_map_data = PackedByteArray("AAAJAP//AAACAAEAAAAKAP7/AAACAAEAAAAKAP//AAACAAEAAAAKAP3/AAACAAEAAAALAP3/AAACAAEAAAAIAP//AAABAAAAAAAJAP7/AAABAAEAAAALAPv/AAABAAAAAAAKAPz/AAABAAAAAAAMAPv/AAACAAAAAAANAPv/AAADAAAAAAAJAP3/AAABAAEAAAAJAPz/AAABAAAAAAANAPz/AAADAAEAAAANAP3/AAADAAEAAAANAP7/AAADAAEAAAANAP//AAACAAEAAAAOAP//AAADAAAAAAALAP//AAACAAEAAAAMAP//AAACAAEAAAAMAP7/AAACAAEAAAALAP7/AAACAAEAAAAMAP3/AAACAAEAAAAMAPz/AAACAAEAAAALAPz/AAACAAEAAAA=")
+tile_set = SubResource("TileSet_0ndw4")
+
+[node name="House1" type="Sprite2D" parent="Spritebg"]
+position = Vector2(84, -82)
+texture = ExtResource("3_sjn3d")
+
+[node name="Tree1" type="Sprite2D" parent="Spritebg"]
+position = Vector2(-1, -45)
+texture = ExtResource("4_41nbf")
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
+polygon = PackedVector2Array(246, 6, 304, 7, 303, 20, 301, 28, 298, 159, 459, 164, 476, 156, 469, -252, 525, -235, 553, -227, 547, 211, -107, 216, -89, -266, -20, -267, -33, 4)
+
+[node name="Player" parent="." instance=ExtResource("6_sjn3d")]
+position = Vector2(250, -61)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(149, -53)
+zoom = Vector2(2.5, 2.5)
+
+[node name="StartDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartDetector"]
+position = Vector2(399, 81)
+shape = SubResource("RectangleShape2D_41nbf")
+
+[node name="SceneTransitionAnim" parent="." instance=ExtResource("8_q0i2j")]
+
+[node name="Score" type="StaticBody2D" parent="."]
+
+[node name="HighScore" type="RichTextLabel" parent="Score"]
+offset_left = 254.0
+offset_top = -194.0
+offset_right = 400.0
+offset_bottom = -154.0
+text = "HIGH SCORE: 9999"
+script = ExtResource("9_6m2vk")
+
+[node name="PrevRDScore" type="RichTextLabel" parent="Score"]
+offset_left = 227.0
+offset_top = -176.0
+offset_right = 482.0
+offset_bottom = -136.0
+text = "PREV. RD SCORE: 9999"
+script = ExtResource("10_nyq1u")
+
+[connection signal="body_entered" from="StartDetector" to="." method="_on_start_detector_body_entered"]
